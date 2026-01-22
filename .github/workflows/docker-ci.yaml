@@ -6,6 +6,7 @@ on:
         -  'Dockerfile'
         -  'CONTRIBUTING.md'
         -  'README.md'
+        -  'docker-ci.yaml'
 jobs:
   dockerci-job:
     runs-on: ubuntu-latest
