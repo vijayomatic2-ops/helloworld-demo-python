@@ -1,5 +1,11 @@
 name: docker-ci-pipeline
-on: push
+on:
+  push:
+    paths-ignore:
+        -  'LICENSE'
+        -  'Dockerfile'
+        -  'CONTRIBUTING.md'
+        -  'README.md'
 jobs:
   dockerci-job:
     runs-on: ubuntu-latest
