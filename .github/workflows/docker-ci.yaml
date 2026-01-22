@@ -13,6 +13,15 @@ jobs:
       - name: Verify the image 
         run: docker images
 
+      - name: Create the container 
+        run: docker run --name pythonapp -idt -p 8080:8080 ${{vars.DOCKER_USERNAME }}/helloworld-demo-python:vj
+        
+      - name: View the container 
+        run: docker ps
+        
+      - name: curl the container
+        run: curl http://localhost:8080
+        
       - name: Docker login 
         uses: docker/login-action@v3.6.0
         with:
@@ -21,5 +30,8 @@ jobs:
 
       - name: Push the image
         run: docker push ${{vars.DOCKER_USERNAME }}/helloworld-demo-python:vj
+
+      - name: Clean the conatiner
+        run: docker rm pythonapp
 
         
