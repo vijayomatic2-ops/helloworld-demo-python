@@ -15,12 +15,15 @@ jobs:
 
       - name: Create the container 
         run: docker run --name pythonapp -idt -p 8080:8080 ${{vars.DOCKER_USERNAME }}/helloworld-demo-python:vj
+
+      - name: waiting time 
+        run: sleep 20
         
       - name: View the container 
         run: docker ps
         
       - name: curl the container
-        run: curl -X http://localhost:8080
+        run: curl -f http://localhost:8080
         
       - name: Docker login 
         uses: docker/login-action@v3.6.0
