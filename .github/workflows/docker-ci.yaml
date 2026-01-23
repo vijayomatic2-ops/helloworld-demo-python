@@ -60,17 +60,16 @@ jobs:
       - name: apply minikube
         run:  |
           kubectl apply -f k8s/.
-          kubectl config set-context --current --namespace=python-app
           kubectl wait --for=condition=ready pod -l app=python-app
  
       - name: get deplyoment status
         run:  |
           kubectl get ns
-          kubectl get deploy,service -n python-app
+          kubectl get deploy,service
 
       - name: test your application
         run:  |
           minikube service list
           minikube service my-service1 --url
           echo -n "------------------opening the service------------------"
-          curl $(minikube service my-service1 --url)/version
+          curl $(minikube service my-service1 --url)
