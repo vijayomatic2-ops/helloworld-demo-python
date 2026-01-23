@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: helloworld-demo-python
-  namespace: python-app
   labels:
     app: python
 spec:
