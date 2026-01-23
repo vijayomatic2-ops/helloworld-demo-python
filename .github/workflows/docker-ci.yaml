@@ -60,7 +60,7 @@ jobs:
       - name: apply minikube
         run:  |
           kubectl apply -f k8s/.
-          kubectl wait --for=condition=ready pod -l app=python-app
+          kubectl wait --for=condition=ready pod -l app=python
  
       - name: get deplyoment status
         run:  |
